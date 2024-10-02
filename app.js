@@ -11,6 +11,7 @@
   const data2 = document.getElementById('nota2')
   const data3 = document.getElementById('nota3')
   const btnCalculate = document.getElementById('btn-calculate')
+  const btnPredecir = document.getElementById('btn-Predecir')
   const response = document.getElementById('resultado')
   
   btnCalculate.addEventListener('click', calculateNote )
@@ -25,9 +26,37 @@
     
     let result = ((note1 * 0.3) + (note2 * 0.3) + (note3 * 0.4)).toFixed(2)
     // template string o template literal
-    response.style.color = 'green'
-    response.textContent = `SR/SRA/SRE ${username.value} su nota definitiva es: ${result}`    
+
+    if (result<3.5) {
+      response.style.color='black'
+      response.style.fontWeight=800
+      response.textContent = `perdio la materia`  
+    }
+
+    if (result>=3.5 && result<=4.5) {
+      response.style.color='orange'
+      response.textContent = `gano la materia`  
+    }
+
+    if (result>4.5) {
+      response.style.color='green'
+      response.textContent = `su nota es sobresaliente`  
+    }
+
   }
+
+  btnPredecir.addEventListener('click',missing)
+
+  function missing(){
+
+    let note1 = Number(data1.value)        
+    let note2 = Number(data2.value)  
+
+    let result2 = (note1 * 0.3) + (note2 * 0.3)
+
+  
+  }
+
 
   
 
