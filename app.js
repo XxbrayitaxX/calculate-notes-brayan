@@ -48,16 +48,18 @@
   btnPredecir.addEventListener('click',missing)
 
   function missing(){
+    const notaAprobatoria = 3.5; 
+    let nota1 = Number(data1.value);
+    let nota2 = Number(data2.value);
 
-    let note1 = Number(data1.value)        
-    let note2 = Number(data2.value)  
+    let required = (notaAprobatoria - (nota1 * 0.3 + nota2 * 0.3)); 
+    let total= required / 0.4
+    data3.value = total.toFixed(2);
+    if (total> 5) {
+      response1.textContent= "No es posible que gane la materia ya que la nota 3 es mayor a 5"
+    }
 
-    let result2 = (note1 * 0.3) + (note2 * 0.3)
-
-  
   }
-
-
   
 
 
